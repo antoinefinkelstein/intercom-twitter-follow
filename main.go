@@ -13,11 +13,10 @@ import (
 )
 
 var (
-	redis       *redix.Client
-	redisHost   = "localhost"
-	redisPort   = uint(6379)
-	twitterAPI  = anaconda.NewTwitterApi(os.Getenv("TWITTER_ACCESS_TOKEN"), os.Getenv("TWITTER_ACCESS_TOKEN_SECRET"))
-	intercomAPI = intercom.NewClient(os.Getenv("INTERCOM_APP_ID"), os.Getenv("INTERCOM_API_KEY"))
+	redis           *redix.Client
+	twitterAPI      = anaconda.NewTwitterApi(os.Getenv("TWITTER_ACCESS_TOKEN"), os.Getenv("TWITTER_ACCESS_TOKEN_SECRET"))
+	intercomAPI     = intercom.NewClient(os.Getenv("INTERCOM_APP_ID"), os.Getenv("INTERCOM_API_KEY"))
+	redisConnection = &redisInfos{path: os.Getenv("REDIS_URL")}
 )
 
 func homeHandler(w http.ResponseWriter, r *http.Request) {
@@ -56,8 +55,13 @@ func main() {
 	anaconda.SetConsumerKey(os.Getenv("TWITTER_CONSUMER_KEY"))
 	anaconda.SetConsumerSecret(os.Getenv("TWITTER_CONSUMER_SECRET"))
 
+	if redisConnection.path == "" {
+		redisConnection.path = "redis://127.0.0.1:6379"
+	}
+	redisConnection.parse()
+
 	redis = redix.New()
-	err := redis.Connect(redisHost, redisPort)
+	err := redis.Connect(redisConnection.host, redisConnection.port)
 	if err != nil {
 		log.Fatalf("Connect failed: %s\n", err.Error())
 		return
