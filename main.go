@@ -66,6 +66,13 @@ func main() {
 		log.Fatalf("Connect failed: %s\n", err.Error())
 		return
 	}
+	// if redisConnection.auth != "" {
+	_, err = redis.Auth(redisConnection.auth)
+	if err != nil {
+		log.Fatalf("Connect failed: %s\n", err.Error())
+		return
+	}
+	// }
 
 	go startWorkers()
 
