@@ -1,0 +1,56 @@
+{
+	"ImportPath": "github.com/antoinefinkelstein/intercom-twitter-follow",
+	"GoVersion": "go1.5.1",
+	"Deps": [
+		{
+			"ImportPath": "github.com/ChimeraCoder/anaconda",
+			"Rev": "aa628ec9b414f6a2d88834a40e3b2bbef4dbdf1b"
+		},
+		{
+			"ImportPath": "github.com/ChimeraCoder/tokenbucket",
+			"Rev": "c5a927568de7aad8a58127d80bcd36ca4e71e454"
+		},
+		{
+			"ImportPath": "github.com/azr/backoff",
+			"Rev": "dd6e01f857f8c114b40c6ce808502a87c58c6816"
+		},
+		{
+			"ImportPath": "github.com/dustin/go-jsonpointer",
+			"Rev": "2efc9fef1d9421a8d252a32e20beb10cecd2bbca"
+		},
+		{
+			"ImportPath": "github.com/dustin/gojson",
+			"Rev": "af16e0e771e2ed110f2785564ae33931de8829e4"
+		},
+		{
+			"ImportPath": "github.com/garyburd/go-oauth/oauth",
+			"Rev": "3131beb69b81ff119923bdefbf029318f1f53794"
+		},
+		{
+			"ImportPath": "github.com/google/go-querystring/query",
+			"Rev": "2a60fc2ba6c19de80291203597d752e9ba58e4c0"
+		},
+		{
+			"ImportPath": "github.com/intercom/intercom-go/interfaces",
+			"Comment": "v1.0.0-18-gfa5b82f",
+			"Rev": "fa5b82f3feb9ed44485a452f20b600a88698619f"
+		},
+		{
+			"ImportPath": "github.com/xiam/resp",
+			"Rev": "04b037c5d609117402713f2842683bd7f3010795"
+		},
+		{
+			"ImportPath": "gopkg.in/intercom/intercom-go.v1",
+			"Comment": "v1.0.0",
+			"Rev": "8f7e3395d99c498673cd2a6a162e876c993407fd"
+		},
+		{
+			"ImportPath": "menteslibres.net/gosexy/redis",
+			"Rev": "19c427d2a3bc8b8cdbb2cbb8f313ed141cb78096"
+		},
+		{
+			"ImportPath": "menteslibres.net/gosexy/to",
+			"Rev": "c20e083e31230b84ffa23c5d2fb0bc55f5292681"
+		}
+	]
+}
