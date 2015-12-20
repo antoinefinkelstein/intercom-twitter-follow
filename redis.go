@@ -35,6 +35,4 @@ func (infos *redisInfos) parse() {
 		return
 	}
 	infos.port = uint(port)
-	log.Println(infos.host)
-	log.Println(infos.port)
 }
