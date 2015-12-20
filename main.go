@@ -47,7 +47,7 @@ func webhookHandler(w http.ResponseWriter, r *http.Request) {
 func enqueueUserID(id string) {
 	log.Println("Received id " + id)
 
-	redis.ZAdd("queue:users", time.Now().Unix(), id)
+	redis.ZAdd("queue:users", time.Now().Unix()+60*60*24*2, id)
 	return
 }
 

@@ -13,7 +13,7 @@ func startWorkers() {
 }
 
 func followUsers() {
-	ids, err := redis.ZRange("queue:users", 0, -1)
+	ids, err := redis.ZRangeByScore("queue:users", 0, time.Now().Unix())
 	if err != nil {
 		log.Println(err)
 		return
@@ -23,6 +23,8 @@ func followUsers() {
 		user, err := intercomAPI.Users.FindByID(id)
 		if err != nil {
 			log.Println(err)
+
+			redis.ZRem("queue:users", id)
 			return
 		}
 
